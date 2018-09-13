@@ -4,10 +4,17 @@ $name = "Luis $lastName";
 $jobs = [
   [
     'title' => 'PHP Developer',
-    'description' => 'This is a description'
+    'description' => 'This is a description',
+    'visible' => true
   ],
-  ['title' => 'Python Developer'],
-  ['title' => 'DevOps']
+  [
+    'title' => 'Python Developer',
+    'visible' => false
+  ],
+  [
+    'title' => 'DevOps',
+    'visible' => false
+    ]
 ];
 ?>
 
@@ -59,21 +66,19 @@ $jobs = [
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php 
-            for ($idx=0; $idx < count($jobs); $idx++) { 
-            ?>
-            <li class="work-position">
-              <h5><?php echo $jobs[$idx]['title']; ?></h5>
-              <p>
-              <?php echo $jobs[$idx]['description']; ?>
-              </p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <?php
+            for ($idx=0; $idx < count($jobs); $idx++) {
+              if ($jobs[$idx]['visible'] == true) {
+                echo '<li class="work-position">';
+                echo '<h5>'.$jobs[$idx]['title'].'</h5>';
+                echo '<p>'.$jobs[$idx]['description'].'</p>';
+                echo '<strong>Achievements:</strong>';
+                echo '<ul>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+                echo '</ul>';
+                echo '</li>';
+              }
             }
             ?>
           </ul>
