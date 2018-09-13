@@ -12,4 +12,41 @@
  * Colombia: Bogota Cartagena Medellin
  */
 
+$places = [
+    'México' => [
+        'Monterrey',
+        'Querétaro',
+        'Guadalajara'
+    ],
+    'Colombia' => [
+        'Bogota',
+        'Cartagena',
+        'Medellin'
+    ],
+    'Japón' => [
+        'Fukushima',
+        'Nagasaki',
+        'Osaka'
+    ],
+    'Alemania' => [
+        'Berlín',
+        'Múnich',
+        'Bremen'
+    ],
+    'Tailandia' => [
+        'Bangkok',
+        'Chiang Mai',
+        'Sukhothai '
+    ]
+];
+
+
+foreach ($places as $country => $cities) {
+    echo "$country <br>";
+    if (is_array($cities)) {
+        foreach ($cities as $city) {
+            echo "- $city <br>";
+        }
+    }
+}
 ?>
