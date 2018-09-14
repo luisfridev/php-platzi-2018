@@ -1,20 +1,34 @@
 <?php
 $lastName = "Herrera";
 $name = "Luis $lastName";
+$limitMonths = 12;
 $jobs = [
   [
     'title' => 'PHP Developer',
     'description' => 'This is a description',
-    'visible' => true
+    'visible' => true,
+    'months' => 5
   ],
   [
     'title' => 'Python Developer',
-    'visible' => false
+    'visible' => true,
+    'months' => 3
   ],
   [
     'title' => 'DevOps',
-    'visible' => false
-    ]
+    'visible' => true,
+    'months' => 9
+  ],
+  [
+    'title' => 'NodeDev',
+    'visible' => true,
+    'months' => 10
+  ],
+  [
+    'title' => 'FrontDev',
+    'visible' => true,
+    'months' => 19
+  ]
 ];
 ?>
 
@@ -66,19 +80,28 @@ $jobs = [
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <?php 
+            $totalMonths = 0;
             for ($idx=0; $idx < count($jobs); $idx++) {
-              if ($jobs[$idx]['visible'] == true) {
-                echo '<li class="work-position">';
-                echo '<h5>'.$jobs[$idx]['title'].'</h5>';
-                echo '<p>'.$jobs[$idx]['description'].'</p>';
-                echo '<strong>Achievements:</strong>';
-                echo '<ul>';
-                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo '</ul>';
-                echo '</li>';
+              $totalMonths += $jobs[$idx]['months'];
+
+              if ($totalMonths > 12) {
+                break;
               }
+
+              if ($jobs[$idx]['visible'] == false) {
+                continue;
+              }
+              echo '<li class="work-position">';
+              echo '<h5>'.$jobs[$idx]['title'].'</h5>';
+              echo '<p>'.$jobs[$idx]['description'].'</p>';
+              echo '<p>'.$totalMonths.'</p>';
+              echo '<strong>Achievements:</strong>';
+              echo '<ul>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+              echo '</ul>';
+              echo '</li>';
             }
             ?>
           </ul>
