@@ -1,6 +1,7 @@
 <?php
+require_once 'Printable.php';
 
-class BaseElement
+class BaseElement implements Printable
 {
     private $title;
     public $description;
@@ -45,5 +46,10 @@ class BaseElement
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

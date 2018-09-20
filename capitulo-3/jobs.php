@@ -21,10 +21,10 @@ $project1 = new Project('Proyecto Uno', 'Descripción del proyecto');
 $project1->months = 18;
 
 $projects = [
-  $project1
+    $project1
 ];
 
-function printElement($element)
+function printElement(Printable $element)
 {
     if ($element->visible == false) {
         return;
