@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
-class Job extends BaseElement 
+use Illuminate\Database\Eloquent\Model;
+
+class Job extends Model
 {
-    public function __construct($title, $description)
-    {
-        $newTitle =  "Job: {$title}";
-        parent::__construct($newTitle, $description);
-    }
+
+    protected $table = 'jobs';
+
+     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
     function getDurationAsString($months)
     {
