@@ -4,13 +4,6 @@ require_once 'vendor/autoload.php';
 
 use App\Models\{Job, Project};
 
-$project1 = new Project('Proyecto Uno', 'Descripción del proyecto');
-$project1->months = 18;
-
-$projects = [
-    $project1
-];
-
 function printElement($element)
 {
     /* if ($element->visible == false) {

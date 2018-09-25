@@ -7,7 +7,7 @@ $limitMonths = 2000;
 
 // Agregando Eloquent
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Models\Job;
+use App\Models\{Job, Project};
 
 $capsule = new Capsule;
 
@@ -31,6 +31,8 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 $jobs = Job::all();
+
+$projects = Project::all();
 
 ?>
 
